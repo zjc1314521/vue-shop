@@ -5,17 +5,15 @@
   "author": "zhoujiacheng <zjc15039267308@163.com>",
   "private": true,
   "scripts": {
-    "line": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
     "unit": "jest --config test/unit/jest.conf.js --coverage",
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
     "lint": "eslint --ext .js,.vue src test/unit test/e2e/specs",
-    "pack": "node build/build.js"
+    "build": "node build/build.js"
   },
   "dependencies": {
-    "axios": "^0.18.0",
-    "element-ui": "^2.5.4",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },
@@ -26,7 +24,6 @@
     "babel-helper-vue-jsx-merge-props": "^2.0.3",
     "babel-jest": "^21.0.2",
     "babel-loader": "^7.1.1",
-    "babel-plugin-component": "^1.1.1",
     "babel-plugin-dynamic-import-node": "^1.2.0",
     "babel-plugin-syntax-jsx": "^6.18.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
@@ -55,8 +52,6 @@
     "html-webpack-plugin": "^2.30.1",
     "jest": "^22.0.4",
     "jest-serializer-vue": "^0.3.0",
-    "less": "^3.9.0",
-    "less-loader": "^4.1.0",
     "nightwatch": "^0.9.12",
     "node-notifier": "^5.1.2",
     "optimize-css-assets-webpack-plugin": "^3.2.0",
