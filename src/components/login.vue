@@ -7,12 +7,12 @@
       <el-form ref="loginFormRef" :model="loginForm " :rules="loginFormRules">
         <el-form-item prop="username">
           <el-input v-model="loginForm.username">
-            <i slot="prefix" class="iconfont icon-username"></i>
+            <i slot="prefix" class="iconfont icon-user"></i>
           </el-input>
         </el-form-item>
         <el-form-item prop="password">
           <el-input type="password" v-model="loginForm.password">
-            <i slot="prefix" class="iconfont icon-password"></i>
+            <i slot="prefix" class="iconfont icon-lock_fill"></i>
           </el-input>
         </el-form-item>
         <el-row>
@@ -33,8 +33,8 @@ export default {
     //loginFrom :收集登录表单的全部表单信息
     return {
       loginForm: {
-        username: '',
-        password: ''
+        username: 'admin',
+        password: '123456'
       },
       loginFormRules: {
         username: [
@@ -50,10 +50,10 @@ export default {
       this.$refs.loginFormRef.validate(async valid => {
         if (valid === true) {
           const { data: res } = await this.$http.post('login', this.loginForm)
-          if(res.meta.status!==200){
+          if (res.meta.status !== 200) {
             return this.$message.error('用户名或密码不存在')
           }
-          window.sessionStorage.setItem('token',res.data.token)
+          window.sessionStorage.setItem('token', res.data.token)
           this.$router.push('/home')
         }
       })
